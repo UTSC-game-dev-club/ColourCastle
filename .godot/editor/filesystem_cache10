@@ -1,3 +1,15 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1773357989
-icon.svg::CompressedTexture2D::8246026783399145107::1773357979::1773357990::1::::<><><>0<>0<>0651a0d6f7bd65fc7db3ad227be14723<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+::res://::1773729442
+icon.svg::CompressedTexture2D::8246026783399145107::1773724693::1773724693::1::::<><><>0<>0<>0651a0d6f7bd65fc7db3ad227be14723<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+README.md::TextFile::-1::1773724693::0::1::::<><><>0<>0<><>::
+::res://assets/::1773724803
+::res://scenes/::1773730504
+game.tscn::PackedScene::9176569633759209594::1773730504::0::1::::<><><>0<>0<><>::uid://db7fxboq0nndm::::res://scripts/game.gd<>uid://diivsiofqbgon::::res://scenes/player.tscn<>uid://b34rpdxdd8m23::::res://scripts/camera_3d.gd
+player.tscn::PackedScene::7738595465417092521::1773729667::0::1::::<><><>0<>0<><>::uid://dhmcvuwila2rt::::res://scripts/player.gd
+::res://scripts/::1773730504
+camera_3d.gd::GDScript::4412634429453523770::1773729381::0::1::::PlayerCamera<>Camera3D<><>0<>0<><>::
+game.gd::GDScript::7295855715982406558::1773730490::0::1::::Game<>Node3D<><>0<>0<><>::
+player.gd::GDScript::7675516510082697841::1773730504::0::1::::Player<>CharacterBody3D<><>0<>0<><>::
+::res://scripts/autoloads/::1773730423
+color_manager.gd::GDScript::526270902022023324::1773730423::0::1::::<>Node<><>0<>0<><>::
+enums.gd::GDScript::7611242599067011993::1773730227::0::1::::<>Node<><>0<>0<><>::
