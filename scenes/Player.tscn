@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cvfl046lxgtlo"]
+
+[ext_resource type="Script" uid="uid://dhmcvuwila2rt" path="res://scripts/player.gd" id="1_p0vlq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_b3a34"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_b3a34"]
+
+[node name="AlexYardley" type="CharacterBody3D" unique_id=1548424580]
+script = ExtResource("1_p0vlq")
+speed = 5.0
+jump_velocity = 30.0
+metadata/_custom_type_script = "uid://dhmcvuwila2rt"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=397773499]
+material = SubResource("StandardMaterial3D_b3a34")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=465741825]
+shape = SubResource("BoxShape3D_b3a34")

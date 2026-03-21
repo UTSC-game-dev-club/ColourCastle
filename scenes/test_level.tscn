@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://dcmxrolv76w6h"]
+
+[ext_resource type="PackedScene" uid="uid://cvfl046lxgtlo" path="res://scenes/Player.tscn" id="1_w7t1t"]
+
+[sub_resource type="Environment" id="Environment_w7t1t"]
+ambient_light_source = 2
+ambient_light_color = Color(0.937243, 0.95971376, 0.99999994, 1)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2a6eu"]
+viewport_path = NodePath("SubViewport")
+
+[node name="TestLevel" type="Node3D" unique_id=539423909]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1416758561]
+environment = SubResource("Environment_w7t1t")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=634806537]
+visible = false
+light_color = Color(0, 1, 1, 1)
+
+[node name="Floor" type="CSGBox3D" parent="." unique_id=357945117]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0050001144, 0)
+use_collision = true
+size = Vector3(100, 0.1, 20)
+
+[node name="WallBack" type="CSGBox3D" parent="." unique_id=1529643410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 15, 9.995)
+use_collision = true
+size = Vector3(100, 30, 0.01)
+
+[node name="Player" parent="." unique_id=1548424580 instance=ExtResource("1_w7t1t")]
+transform = Transform3D(1, 0, 0, 0, 0.99991727, -0.012862721, 0, 0.012862721, 0.99991727, 0.19189453, 4.7423096, 5)
+jump_velocity = 10.0
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=950624289]
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=186107188]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 14.027619, -68.68958)
+projection = 1
+fov = 59.2
+size = 30.0
+far = 4005.11
+
+[node name="Node2D" type="Control" parent="." unique_id=1638656339]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Node2D" unique_id=137033280]
+clip_contents = true
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="TextureRect" type="TextureRect" parent="Node2D/Panel" unique_id=1789258788]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_2a6eu")
+
+[node name="ColorRect" type="ColorRect" parent="Node2D" unique_id=351225547]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 17.0
+offset_bottom = 649.0
+color = Color(2.2140146e-06, 0.5908042, 0.7447585, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Node2D" unique_id=1338835524]
+layout_mode = 0
+offset_left = 1138.0
+offset_right = 1154.0
+offset_bottom = 648.0
+color = Color(0, 0.5921569, 0.74509805, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="Node2D" unique_id=1932447902]
+layout_mode = 0
+offset_top = 632.0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0.5921569, 0.74509805, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="Node2D" unique_id=1215617100]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 16.0
+color = Color(0, 0.5921569, 0.74509805, 1)
