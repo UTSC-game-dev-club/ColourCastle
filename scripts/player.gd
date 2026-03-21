@@ -5,47 +5,45 @@ class_name Player
 @export_group("")
 @export var speed: float
 @export var jump_velocity: float
-@onready var is_side_scroller: bool = true # true means start as sidescroller
 
 @onready var gravity: float = ProjectSettings.get_setting(&"physics/3d/default_gravity")
+@onready var game: Game = null
 
 func _ready() -> void:
-	pass
+	game = get_tree().current_scene as Game
 
-func handle_input_sidescroller() -> void:
+func handle_input_sidescroller(_delta: float) -> void:
 	velocity.x = 0
 	velocity.z = 0
+	
 	if Input.is_action_pressed("left"):
+		rotation = Vector3(0, PI, 0)
 		velocity.x = -speed
 	elif Input.is_action_pressed("right"):
+		rotation = Vector3(0, 0, 0)
 		velocity.x = speed
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_velocity
 	
 
-func handle_input_topdown() -> void:
+func handle_input_topdown(_delta: float) -> void:
 	velocity.x = 0
-	velocity.y = 0
 	var direction: Vector2 = Input.get_vector("left", "right", "up", "down").normalized()
 	
 	velocity.x = direction.x * speed
 	velocity.z = direction.y * speed
 	
-	#if Input.is_action_just_pressed("camera_toggle"):
-		#camera.set_sidescroller()
-		#is_side_scroller = !is_side_scroller
+	rotation.y = atan2(-direction.y, direction.x)
 
 func _physics_process(delta: float) -> void:
 	
 	# toggle camera
-	if is_side_scroller:
-		handle_input_sidescroller()
-	else:
-		handle_input_topdown()
+	if game.get_persepective() == Enums.Perspective.SIDESCROLLER:
+		handle_input_sidescroller(delta)
+	elif game.get_persepective() == Enums.Perspective.TOPDOWN:
+		handle_input_topdown(delta)
 	
-	# Gravity
-	if not is_on_floor():
-		velocity.y -= gravity * delta
+	velocity.y -= gravity * delta
 	
 	move_and_slide()
