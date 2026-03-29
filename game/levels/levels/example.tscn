@@ -10,6 +10,9 @@
 ambient_light_source = 2
 ambient_light_color = Color(0.937243, 0.95971376, 0.99999994, 1)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_4vwhi"]
+viewport_path = NodePath("SubViewport")
+
 [node name="Level" type="Node3D" unique_id=550064455 node_paths=PackedStringArray("floor_plane", "wall_plane", "game_camera")]
 script = ExtResource("1_0o2r0")
 floor_plane = NodePath("FloorPlane")
@@ -21,40 +24,53 @@ metadata/_custom_type_script = "uid://dsscop28xucyi"
 environment = SubResource("Environment_w7t1t")
 
 [node name="FloorPlane" type="CSGBox3D" parent="." unique_id=1220315320]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005, 30)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005, 25)
 use_collision = true
 collision_layer = 3
 collision_mask = 2
-size = Vector3(100, 0.01, 60)
+size = Vector3(50, 0.01, 50)
 script = ExtResource("2_0o2r0")
 metadata/_custom_type_script = "uid://b6wkykip0ycs8"
 
 [node name="WallPlane" type="CSGBox3D" parent="." unique_id=1770717440]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0055236816, 30.04718, 0.018925667)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0055236816, 25.04718, 0.018925667)
 use_collision = true
 collision_layer = 3
 collision_mask = 2
-size = Vector3(100, 60, 0.01)
+size = Vector3(50, 50, 0.01)
 script = ExtResource("2_0o2r0")
 metadata/_custom_type_script = "uid://b6wkykip0ycs8"
 
 [node name="GameCamera" type="Camera3D" parent="." unique_id=1222660865]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 15, 50)
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 25, 50)
 projection = 1
 current = true
 fov = 59.2
-size = 30.0
+size = 50.0
 far = 4005.11
 script = ExtResource("3_4vwhi")
+position_sidescroller = Vector3(0, 25, 50)
 metadata/_custom_type_script = "uid://b5iqr82tx4yxl"
 
 [node name="Player" parent="." unique_id=1932744295 instance=ExtResource("4_0o2r0")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.035751, 2, 41.25433)
 
 [node name="CSGSphere3D" type="CSGBox3D" parent="." unique_id=931459634]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.665451, 17.945724)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1745486, 17.945724)
 use_collision = true
 collision_layer = 2
 size = Vector3(5, 5, 5)
 script = ExtResource("5_4vwhi")
 color_enum = 1
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=291574990]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=903532974]
+transform = Transform3D(0.9190845, -0.23986986, 0.31264383, 0, 0.79339033, 0.6087132, -0.39406055, -0.55945885, 0.72919273, 26.637815, 51.86346, 62.128532)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1094675088]
+offset_left = 739.0
+offset_top = 67.0
+offset_right = 1251.0
+offset_bottom = 579.0
+texture = SubResource("ViewportTexture_4vwhi")

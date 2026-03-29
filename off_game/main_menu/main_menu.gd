@@ -1,3 +1,6 @@
+# entry point of game
+# not documented yet...
+
 extends Control
 
 class_name MainMenu

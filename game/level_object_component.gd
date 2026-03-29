@@ -1,3 +1,5 @@
+# every shape in game should be using this script
+
 extends CSGShape3D
 
 class_name LevelObject
@@ -9,7 +11,7 @@ func _ready() -> void:
 	set_collision_layer_value(2, true)
 	ColorManager.apply_color(self, color_enum)
 
-func apply_blur() -> void:
+func apply_fade() -> void:
 	var alpha: float = 0.3
 	var mat := StandardMaterial3D.new()
 	mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA

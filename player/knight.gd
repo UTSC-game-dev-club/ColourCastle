@@ -1,3 +1,5 @@
+# just turns the player 3D model black at start of game, will be removed in the future
+
 extends Node3D
 
 func make_black(node: Node) -> void:

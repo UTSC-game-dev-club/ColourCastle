@@ -14,10 +14,12 @@ metadata/_custom_type_script = "uid://dhmcvuwila2rt"
 [node name="VisualModel" parent="." unique_id=1708643588 instance=ExtResource("2_v6fml")]
 script = ExtResource("3_3li8b")
 
-[node name="PlayerMovementChecker" type="Node3D" parent="." unique_id=54044238 node_paths=PackedStringArray("h_raycasts", "v_raycasts")]
+[node name="PlayerMovementChecker" type="Node3D" parent="." unique_id=54044238 node_paths=PackedStringArray("h_raycasts", "h_raycast_central", "v_raycasts", "v_raycast_central")]
 script = ExtResource("4_yw30f")
 h_raycasts = [NodePath("HRaycasts/HRaycastBL"), NodePath("HRaycasts/HRaycastML"), NodePath("HRaycasts/HRaycastTL"), NodePath("HRaycasts/HRaycastBR"), NodePath("HRaycasts/HRaycastMR"), NodePath("HRaycasts/HRaycastTR")]
+h_raycast_central = NodePath("HRaycasts/HRaycastCentral")
 v_raycasts = [NodePath("VRaycasts/VRaycastFR"), NodePath("VRaycasts/VRaycastMR"), NodePath("VRaycasts/VRaycastBR"), NodePath("VRaycasts/VRaycastFL"), NodePath("VRaycasts/VRaycastML"), NodePath("VRaycasts/VRaycastBL")]
+v_raycast_central = NodePath("VRaycasts/VRaycastCentral")
 metadata/_custom_type_script = "uid://cgc455daxomh4"
 
 [node name="HRaycasts" type="Node3D" parent="PlayerMovementChecker" unique_id=588706734]
@@ -53,29 +55,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 2, 1)
 target_position = Vector3(0, 0, -500)
 collision_mask = 2
 
+[node name="HRaycastCentral" type="RayCast3D" parent="PlayerMovementChecker/HRaycasts" unique_id=1688129679]
+target_position = Vector3(0, 0, -500)
+collision_mask = 2
+
 [node name="VRaycasts" type="Node3D" parent="PlayerMovementChecker" unique_id=1022380871]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 250, 0)
 
 [node name="VRaycastFR" type="RayCast3D" parent="PlayerMovementChecker/VRaycasts" unique_id=465428533]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 1)
 target_position = Vector3(0, -500, 0)
+collision_mask = 2
 
 [node name="VRaycastMR" type="RayCast3D" parent="PlayerMovementChecker/VRaycasts" unique_id=765681432]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
 target_position = Vector3(0, -500, 0)
+collision_mask = 2
 
 [node name="VRaycastBR" type="RayCast3D" parent="PlayerMovementChecker/VRaycasts" unique_id=1616717706]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 target_position = Vector3(0, -500, 0)
+collision_mask = 2
 
 [node name="VRaycastFL" type="RayCast3D" parent="PlayerMovementChecker/VRaycasts" unique_id=2085425729]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1)
 target_position = Vector3(0, -500, 0)
+collision_mask = 2
 
 [node name="VRaycastML" type="RayCast3D" parent="PlayerMovementChecker/VRaycasts" unique_id=2077627664]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
 target_position = Vector3(0, -500, 0)
+collision_mask = 2
 
 [node name="VRaycastBL" type="RayCast3D" parent="PlayerMovementChecker/VRaycasts" unique_id=1245161855]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -1)
 target_position = Vector3(0, -500, 0)
+collision_mask = 2
+
+[node name="VRaycastCentral" type="RayCast3D" parent="PlayerMovementChecker/VRaycasts" unique_id=702851987]
+target_position = Vector3(0, -500, 0)
+collision_mask = 2

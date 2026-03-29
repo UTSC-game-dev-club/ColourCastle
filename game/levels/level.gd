@@ -20,6 +20,8 @@ func _ready() -> void:
 	for child: Node in get_children():
 		if child is LevelObject:
 			shapes.append(child)
+	
+	GamePerspective.game_start() # remove this line in the future, game should be started from outside
 
 func _unhandled_input(_event: InputEvent) -> void:
 	if Input.is_action_just_pressed("change_color"):
@@ -32,7 +34,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 			GamePerspective.set_perspective(GamePerspective.Perspective.SIDESCROLLER_TO_TOPDOWN)
 			await game_camera.transition_to_topdown()
 			GamePerspective.set_perspective(GamePerspective.Perspective.TOPDOWN)
-		elif game_perspective == GamePerspective.Perspective.SIDESCROLLER:
+		elif game_perspective == GamePerspective.Perspective.TOPDOWN:
 			GamePerspective.set_perspective(GamePerspective.Perspective.TOPDOWN_TO_SIDESCROLLER)
 			await game_camera.transition_to_sidescroller()
 			GamePerspective.set_perspective(GamePerspective.Perspective.SIDESCROLLER)

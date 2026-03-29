@@ -1,3 +1,6 @@
+# used for the floor and wall of the game, able to change colour from the level itself
+# everything else works the same as a LevelObject
+
 extends LevelObject
 
 class_name LevelSurface

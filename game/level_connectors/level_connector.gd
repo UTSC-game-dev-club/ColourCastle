@@ -1,3 +1,6 @@
+# eh not really implemented yet, an animating 3D model representing starting point
+# or end point of the level
+
 extends CSGCombiner3D
 
 class_name LevelConnector

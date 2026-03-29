@@ -1,4 +1,5 @@
 # an autoload used to change scene for the game
+# usage is documented in readme due to how important it is
 
 extends Node
 

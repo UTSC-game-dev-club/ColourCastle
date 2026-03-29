@@ -1,13 +1,24 @@
+# responsible for the camera's transition when changing perspective
+# camera transition takes 0.8 seconds
+
 extends Camera3D
 
 class_name LevelCamera
+
+@export var position_sidescroller: Vector3
+@onready var position_topdown: Vector3
+
+func _ready() -> void:
+	position = position_sidescroller
+	position_topdown.y = position_sidescroller.z
+	position_topdown.z = position_sidescroller.y
 
 func transition_to_sidescroller() -> void:
 	var tween := create_tween()
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 
-	tween.parallel().tween_property(self, "position", Vector3(0, 15, 50), 0.8)
+	tween.parallel().tween_property(self, "position", position_sidescroller, 0.8)
 	tween.parallel().tween_property(self, "rotation", Vector3(0, 0, 0), 0.8)
 	
 	await tween.finished
@@ -17,7 +28,7 @@ func transition_to_topdown() -> void:
 	tween.set_trans(Tween.TRANS_SINE)
 	tween.set_ease(Tween.EASE_IN_OUT)
 
-	tween.parallel().tween_property(self, "position", Vector3(0, 50, 15), 0.8)
+	tween.parallel().tween_property(self, "position", position_topdown, 0.8)
 	tween.parallel().tween_property(self, "rotation", Vector3(-PI / 2, 0, 0), 0.8)
 	
 	await tween.finished

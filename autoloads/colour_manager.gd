@@ -1,5 +1,7 @@
 extends Node
 
+# use apply color to change the color of a LevelObject (or CSG_Shape3D in general)
+
 enum ColorEnum {
 	WHITE = 0,
 	RED = 1,
