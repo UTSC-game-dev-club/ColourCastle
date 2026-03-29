@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://bgc5w6to7llkg"
 [node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=511986554]
 
 [node name="CSGTorus3D" type="CSGTorus3D" parent="." unique_id=2136458498]
-transform = Transform3D(-0.8731281, 0, -0.48748502, 0, 1, 0, 0.48748502, 0, -0.8731281, 0, 0, 0)
+transform = Transform3D(-0.09132678, 0, 0.99581194, 0, 1, 0, -0.99581194, 0, -0.09132678, 0, 0, 0)
 outer_radius = 0.742
 material = SubResource("ShaderMaterial_dppgv")
 

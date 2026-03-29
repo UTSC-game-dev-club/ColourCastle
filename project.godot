@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="ColourCastle"
-run/main_scene="uid://dcmxrolv76w6h"
+run/main_scene="uid://gthssxq7p5yq"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -67,6 +67,7 @@ change_color={
 
 3d_physics/layer_1="visual collision layer"
 3d_physics/layer_2="hitbox collision layer"
+3d_physics/layer_3="other item collision layer"
 
 [physics]
 

@@ -16,7 +16,7 @@ enum Perspective {
 
 var starting_perspective: Perspective = Perspective.SIDESCROLLER
 
-var playing: bool = false
+var playing: bool = true # toggle around this when debugging
 var perspective: Perspective:
 	set(new_perspective):
 		assert(playing)
