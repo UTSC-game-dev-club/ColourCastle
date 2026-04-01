@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bpe5d70ww2nm8"]
+
+[ext_resource type="Script" uid="uid://bitwufrpvritr" path="res://off_game/loading_screen/loading_screen.gd" id="1_m0puo"]
+
+[node name="LoadingScreen" type="Control" unique_id=366296671 node_paths=PackedStringArray("progress_bar")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m0puo")
+progress_bar = NodePath("ProgressBar")
+metadata/_custom_type_script = "uid://bitwufrpvritr"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2025413103]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=1225642105]
+modulate = Color(0, 0, 1, 1)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "I am a loading screen"
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=257994276]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 1.0

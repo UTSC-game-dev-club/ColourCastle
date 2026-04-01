@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bobfxqj7m8fd5"]
+
+[ext_resource type="Script" uid="uid://bgc5w6to7llkg" path="res://game/level_connectors/level_connector.gd" id="1_wyg5u"]
+[ext_resource type="Shader" uid="uid://bmarwbraxtpfo" path="res://shaders/new_shader.gdshader" id="2_aisp8"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e8dsd"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dppgv"]
+render_priority = 0
+shader = ExtResource("2_aisp8")
+shader_parameter/color_a = Color(1, 0, 0.8, 1)
+shader_parameter/color_b = Color(0.3137255, 0, 1, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wyg5u"]
+
+[node name="LevelExit" type="CSGCombiner3D" unique_id=1357959561 node_paths=PackedStringArray("csg_torus_3d")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
+use_collision = true
+script = ExtResource("1_wyg5u")
+csg_torus_3d = NodePath("CSGTorus3D")
+metadata/_custom_type_script = "uid://bgc5w6to7llkg"
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." unique_id=511986554]
+material = SubResource("StandardMaterial3D_e8dsd")
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="." unique_id=2136458498]
+transform = Transform3D(0.99998957, 0, -0.0009987727, 0, 1, 0, 0.0009987727, 0, 0.99998957, 0, 0, 0)
+outer_radius = 0.742
+material = SubResource("ShaderMaterial_dppgv")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=462228297]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=504304491]
+shape = SubResource("BoxShape3D_wyg5u")

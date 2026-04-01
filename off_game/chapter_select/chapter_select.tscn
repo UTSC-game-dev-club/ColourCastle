@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://bgo7e6a80racw"]
+
+[ext_resource type="Script" uid="uid://c7qnd6huwn358" path="res://off_game/chapter_select/chapter_select.gd" id="1_wikem"]
+
+[node name="ChapterSelect" type="Control" unique_id=213398679]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wikem")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1395891484]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2010382602]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -33.5
+offset_right = 27.0
+offset_bottom = 33.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="chapter1" type="Button" parent="VBoxContainer" unique_id=186814071]
+layout_mode = 2
+text = "chapter 1"
+
+[node name="Button2" type="Button" parent="VBoxContainer" unique_id=861498503]
+layout_mode = 2
+
+[node name="Button3" type="Button" parent="VBoxContainer" unique_id=1582352595]
+layout_mode = 2
+
+[node name="Button4" type="Button" parent="VBoxContainer" unique_id=672582949]
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/chapter1" to="." method="_on_chapter_1_pressed"]
