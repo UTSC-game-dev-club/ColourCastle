@@ -7,6 +7,7 @@
 
 [node name="Player" type="Node3D" unique_id=1932744295 node_paths=PackedStringArray("player_collision_checker", "visual_model")]
 script = ExtResource("1_p0vlq")
+jump_velocity = 18.0
 player_collision_checker = NodePath("PlayerMovementChecker")
 visual_model = NodePath("knight")
 metadata/_custom_type_script = "uid://dhmcvuwila2rt"
