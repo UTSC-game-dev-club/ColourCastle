@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://c86pbsftaqd3v"]
+
+[ext_resource type="PackedScene" uid="uid://cvfl046lxgtlo" path="res://player/player.tscn" id="1_nc0ax"]
+[ext_resource type="PackedScene" uid="uid://c6436yhxqwr6s" path="res://Blender models/Main menu - Colour Castle.glb" id="2_dfxhb"]
+
+[node name="LevelSelect" type="Node3D" unique_id=956875422]
+
+[node name="Player" parent="." unique_id=1932744295 instance=ExtResource("1_nc0ax")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.8462563, 2.1521177, -10.013561)
+
+[node name="Main menu - Colour Castle" parent="." unique_id=763800076 instance=ExtResource("2_dfxhb")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)

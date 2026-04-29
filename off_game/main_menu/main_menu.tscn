@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://boihka0gt0lgg"]
 
 [ext_resource type="Script" uid="uid://cxartcoi056lr" path="res://off_game/main_menu/main_menu.gd" id="1_f4ip1"]
+[ext_resource type="Texture2D" uid="uid://prxhf2gch5ag" path="res://off_game/main_menu/Assets/dd48884db78db02d9bd0c4cae9d7de6c.jpg" id="2_pwfba"]
 
 [node name="MainMenu" type="Control" unique_id=1263924454]
 layout_mode = 3
@@ -19,20 +20,44 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="." unique_id=1054726055]
-modulate = Color(0, 0, 0, 1)
+[node name="Background" type="Sprite2D" parent="." unique_id=1023066457]
+position = Vector2(528, 325)
+rotation = -1.5707964
+scale = Vector2(0.88350064, 0.88350064)
+texture = ExtResource("2_pwfba")
+
+[node name="Start" type="Button" parent="." unique_id=1054726055]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -46.0
-offset_top = -15.5
-offset_right = 46.0
-offset_bottom = 15.5
+offset_left = 212.0
+offset_top = -124.0
+offset_right = 422.0
+offset_bottom = -44.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "start game"
+text = "Start Game"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Options" type="Button" parent="." unique_id=197155591]
+layout_mode = 0
+offset_left = 789.0
+offset_top = 306.0
+offset_right = 998.0
+offset_bottom = 386.0
+text = "Options"
+
+[node name="Quit" type="Button" parent="." unique_id=212475672]
+layout_mode = 0
+offset_left = 789.0
+offset_top = 411.0
+offset_right = 999.0
+offset_bottom = 489.0
+text = "Quit"
+
+[connection signal="pressed" from="Start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]

@@ -13,6 +13,7 @@ enum SceneEnum {
 	NONE = -1,
 	MAIN_MENU = 0,
 	CHAPTER_SELECT = 1,
+	LEVEL_SELECT = 2,
 	LOADING_SCREEN = 10,
 }
 
@@ -21,6 +22,7 @@ var scene_enum_dictionary: Dictionary[SceneEnum, StringName] = {
 	SceneEnum.NONE: &"",
 	SceneEnum.MAIN_MENU: &"uid://boihka0gt0lgg",
 	SceneEnum.CHAPTER_SELECT: &"uid://bgo7e6a80racw",
+	SceneEnum.LEVEL_SELECT: &"uid://c86pbsftaqd3v",
 	SceneEnum.LOADING_SCREEN: &"uid://bpe5d70ww2nm8",
 }
 
