@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://boihka0gt0lgg"]
 
 [ext_resource type="Script" uid="uid://cxartcoi056lr" path="res://off_game/main_menu/main_menu.gd" id="1_f4ip1"]
-[ext_resource type="Texture2D" uid="uid://prxhf2gch5ag" path="res://off_game/main_menu/Assets/dd48884db78db02d9bd0c4cae9d7de6c.jpg" id="2_pwfba"]
+[ext_resource type="Texture2D" uid="uid://dckjsj3wdxprm" path="res://Assets/dd48884db78db02d9bd0c4cae9d7de6c (1).jpg" id="2_pwfba"]
 
-[node name="MainMenu" type="Control" unique_id=1263924454]
+[node name="MainMenu" type="Control" unique_id=1563111737]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +11,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f4ip1")
+metadata/_custom_type_script = "uid://cxartcoi056lr"
+
+[node name="Background" type="TextureRect" parent="." unique_id=801760304]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -2.1632605
+anchor_right = 1.0859694
+anchor_bottom = -2.1632605
+offset_top = 1401.7927
+offset_right = -99.036865
+offset_bottom = 2049.7927
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -1.5707964
+scale = Vector2(0.88350064, 0.88350064)
+texture = ExtResource("2_pwfba")
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2037222213]
 layout_mode = 1
@@ -19,12 +36,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Background" type="Sprite2D" parent="." unique_id=1023066457]
-position = Vector2(528, 325)
-rotation = -1.5707964
-scale = Vector2(0.88350064, 0.88350064)
-texture = ExtResource("2_pwfba")
 
 [node name="Start" type="Button" parent="." unique_id=1054726055]
 layout_mode = 1
@@ -58,6 +69,5 @@ offset_bottom = 489.0
 text = "Quit"
 
 [connection signal="pressed" from="Start" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
