@@ -8,7 +8,7 @@ class_name Level
 @export var wall_plane: LevelSurface
 @export var level_camera: LevelCamera
 
-var shapes: Array[CSGShape3D]
+#var shapes: Array[CSGShape3D]
 
 func _ready() -> void:
 	assert(floor_plane)
@@ -17,9 +17,9 @@ func _ready() -> void:
 	floor_plane.change_color(background_color_enum)
 	wall_plane.change_color(background_color_enum)
 	
-	for child: Node in get_children():
-		if child is LevelObject:
-			shapes.append(child)
+	#for child: Node in get_children():
+		#if child is LevelObject:
+			#shapes.append(child)
 	
 	GamePerspective.game_start() # remove this line in the future, game should be started from outside
 

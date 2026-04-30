@@ -11,10 +11,10 @@ ambient_light_source = 2
 ambient_light_color = Color(0.937243, 0.95971376, 0.99999994, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ec6am"]
-size = Vector3(50, 1, 50)
+size = Vector3(50, 0.1, 50)
 
 [sub_resource type="BoxMesh" id="BoxMesh_4vwhi"]
-size = Vector3(50, 50, 1)
+size = Vector3(50, 50, 0.1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wnclf"]
 size = Vector3(5, 5, 5)
@@ -61,10 +61,10 @@ script = ExtResource("3_qvs41")
 metadata/_custom_type_script = "uid://b5iqr82tx4yxl"
 
 [node name="Player" parent="." unique_id=1932744295 instance=ExtResource("4_rrhwg")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.035751, 2, 41.25433)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.035751, 4, 41.25433)
 
-[node name="CSGSphere3D" type="CSGMesh3D" parent="." unique_id=112583890]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.1745486, 17.945724)
+[node name="LevelObject" type="CSGMesh3D" parent="." unique_id=112583890]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 20)
 use_collision = true
 collision_layer = 2
 mesh = SubResource("BoxMesh_wnclf")

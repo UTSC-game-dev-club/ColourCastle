@@ -4,16 +4,29 @@
 [ext_resource type="Script" uid="uid://b6wkykip0ycs8" path="res://game/level_surface_component.gd" id="2_1jav8"]
 [ext_resource type="Script" uid="uid://b5iqr82tx4yxl" path="res://game/level_camera.gd" id="3_aqje6"]
 [ext_resource type="PackedScene" uid="uid://cvfl046lxgtlo" path="res://player/player.tscn" id="4_q0s4o"]
+[ext_resource type="Script" uid="uid://co8f1qle0aoj8" path="res://game/level_object_component.gd" id="5_0eol4"]
 
 [sub_resource type="Environment" id="Environment_vfi3j"]
 ambient_light_source = 2
 ambient_light_color = Color(0.937243, 0.95971376, 0.99999994, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_0eol4"]
-size = Vector3(100, 1, 100)
+size = Vector3(50, 0.01, 50)
 
 [sub_resource type="BoxMesh" id="BoxMesh_1jav8"]
-size = Vector3(100, 100, 1)
+size = Vector3(50, 50, 0.01)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aqje6"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_q0s4o"]
+size = Vector3(7.5, 20, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vobrt"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_0eol4"]
+viewport_path = NodePath("SubViewport")
 
 [node name="BaseLevel" type="Node3D" unique_id=1099669743 node_paths=PackedStringArray("floor_plane", "wall_plane", "level_camera")]
 script = ExtResource("1_0eol4")
@@ -26,7 +39,7 @@ metadata/_custom_type_script = "uid://dsscop28xucyi"
 environment = SubResource("Environment_vfi3j")
 
 [node name="FloorPlane" type="CSGMesh3D" parent="." unique_id=150688203]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 50)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25)
 use_collision = true
 collision_layer = 3
 collision_mask = 2
@@ -35,7 +48,7 @@ script = ExtResource("2_1jav8")
 metadata/_custom_type_script = "uid://b6wkykip0ycs8"
 
 [node name="WallPlane" type="CSGMesh3D" parent="." unique_id=1454718490]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 50, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
 use_collision = true
 collision_layer = 3
 collision_mask = 2
@@ -44,14 +57,89 @@ script = ExtResource("2_1jav8")
 metadata/_custom_type_script = "uid://b6wkykip0ycs8"
 
 [node name="Camera" type="Camera3D" parent="." unique_id=1709831331]
-transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 50, 100)
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 25, 50)
 projection = 1
 current = true
 fov = 59.2
-size = 100.0
+size = 50.0
 script = ExtResource("3_aqje6")
-game_width = 100.0
 metadata/_custom_type_script = "uid://b5iqr82tx4yxl"
 
 [node name="Player" parent="." unique_id=1932744295 instance=ExtResource("4_q0s4o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.035751, 2, 41.25433)
+
+[node name="LevelObject" type="CSGMesh3D" parent="." unique_id=1810709954]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.874731, 2.315422, 20.099285)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_aqje6")
+script = ExtResource("5_0eol4")
+color_enum = 1
+metadata/_custom_type_script = "uid://co8f1qle0aoj8"
+
+[node name="LevelObject2" type="CSGMesh3D" parent="." unique_id=1119569369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8009362, 7.7039413, 16.905323)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_aqje6")
+script = ExtResource("5_0eol4")
+color_enum = 1
+metadata/_custom_type_script = "uid://co8f1qle0aoj8"
+
+[node name="LevelObject3" type="CSGMesh3D" parent="." unique_id=1045122891]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 3.2140527, 2.632094, 29.154526, 7.9225807)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_aqje6")
+script = ExtResource("5_0eol4")
+color_enum = 1
+metadata/_custom_type_script = "uid://co8f1qle0aoj8"
+
+[node name="LevelObject4" type="CSGMesh3D" parent="." unique_id=1625114987]
+transform = Transform3D(1, 0, 0, 0, 0.70670384, 0, 0, 0, 1, 20.800877, 7.039572, 10.055664)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_q0s4o")
+script = ExtResource("5_0eol4")
+color_enum = 1
+metadata/_custom_type_script = "uid://co8f1qle0aoj8"
+
+[node name="LevelObject5" type="CSGMesh3D" parent="." unique_id=1322739814]
+transform = Transform3D(1, 0, 0, 0, 2.6424375, 0, 0, 0, 1, 2.5023365, 24.762629, 34.97274)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_vobrt")
+script = ExtResource("5_0eol4")
+color_enum = 1
+metadata/_custom_type_script = "uid://co8f1qle0aoj8"
+
+[node name="LevelObject6" type="CSGMesh3D" parent="." unique_id=660747845]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4873104, 20.581583, 40.022503)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_aqje6")
+script = ExtResource("5_0eol4")
+color_enum = 1
+metadata/_custom_type_script = "uid://co8f1qle0aoj8"
+
+[node name="LevelObject7" type="CSGMesh3D" parent="." unique_id=2069085566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.125269, 28.315422, 2.0992851)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_aqje6")
+script = ExtResource("5_0eol4")
+color_enum = 1
+metadata/_custom_type_script = "uid://co8f1qle0aoj8"
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1321480162]
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=816605860]
+transform = Transform3D(0.9190845, -0.23986986, 0.31264383, 0, 0.79339033, 0.6087132, -0.39406055, -0.55945885, 0.72919273, 26.637815, 51.86346, 62.128532)
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=546149725]
+modulate = Color(1, 1, 1, 0.3137255)
+offset_left = 770.0
+offset_top = -2.0
+offset_right = 1282.0
+offset_bottom = 510.0
+texture = SubResource("ViewportTexture_0eol4")

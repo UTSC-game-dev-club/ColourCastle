@@ -30,11 +30,11 @@ func _physics_process(delta: float) -> void:
 		handle_sidescroller(delta)
 		
 	elif perspective == GamePerspective.Perspective.TOPDOWN:
-		#velocity.y = 0
 		handle_topdown(delta)
 
 func _on_perspective_change() -> void:
 	var perspective: GamePerspective.Perspective = GamePerspective.get_perspective()
+	var level: Level = get_tree().current_scene as Level
 	if perspective == GamePerspective.Perspective.SIDESCROLLER_TO_TOPDOWN:
 		var new_position: Vector3 = player_collision_checker.get_relative_topdown_position()
 		player_collision_checker.global_position = new_position
@@ -45,27 +45,41 @@ func _on_perspective_change() -> void:
 		player_collision_checker.global_position = new_position
 		visual_model.global_position = new_position
 		velocity = Vector3.ZERO
+	elif perspective == GamePerspective.Perspective.SIDESCROLLER:
+		visual_model.global_position.z = level.level_camera.game_width - 5
+	elif perspective == GamePerspective.Perspective.TOPDOWN:
+		visual_model.global_position.y = level.level_camera.game_width - 5
 
-func handle_sidescroller(delta: float) -> void: 
-	var perspective: GamePerspective.Perspective = GamePerspective.get_perspective()
+
+func handle_sidescroller(delta: float) -> void:
+	velocity.x = 0
 	
-	if perspective == GamePerspective.Perspective.SIDESCROLLER:
-		velocity.x = 0
+	var is_grounded: bool = player_collision_checker.is_grounded_sidescroller()
+	
+	if !is_grounded:
 		velocity.y -= ProjectSettings.get_setting(&"physics/3d/default_gravity") * delta
-		
-		if Input.is_action_pressed("left"):
-			velocity.x = -speed
-			visual_model.rotation = Vector3(0, 0, 0)
-		elif Input.is_action_pressed("right"):
-			velocity.x = speed
-			visual_model.rotation = Vector3(0, PI, 0)
-		
-		if Input.is_action_just_pressed("jump"):
-			velocity.y = jump_velocity
-		
-		var displacement: Vector3 = player_collision_checker.get_move_sidescroller(velocity * delta)
-		visual_model.position += displacement
-		player_collision_checker.position += displacement
+	else:
+		velocity.y = 0
+	
+	if Input.is_action_pressed("left"):
+		velocity.x = -speed
+		visual_model.rotation = Vector3(0, PI, 0)
+	elif Input.is_action_pressed("right"):
+		velocity.x = speed
+		visual_model.rotation = Vector3(0, 0, 0)
+	
+	if Input.is_action_just_pressed("jump") and is_grounded:
+		velocity.y = jump_velocity
+	
+	var move_x: Vector3 = player_collision_checker.get_move_sidescroller_x(velocity.x * delta)
+	var move_y: Vector3 = player_collision_checker.get_move_sidescroller_y(velocity.y * delta)
+	var displacement: Vector3 = move_x + move_y
+	
+	visual_model.position += displacement
+	player_collision_checker.position += displacement
+	
+	if move_y.y == 0 and velocity.y < 0:
+		velocity.y = 0
 
 func handle_topdown(delta: float) -> void:
 	var direction_vector: Vector2 = Input.get_vector("left", "right", "up", "down").normalized()

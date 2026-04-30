@@ -13,6 +13,7 @@ enum SceneEnum {
 	NONE = -1,
 	MAIN_MENU = 0,
 	CHAPTER_SELECT = 1,
+	LEVEL_SELECT = 2,
 	LOADING_SCREEN = 10,
 }
 
@@ -21,6 +22,7 @@ var scene_enum_dictionary: Dictionary[SceneEnum, StringName] = {
 	SceneEnum.NONE: &"",
 	SceneEnum.MAIN_MENU: &"uid://boihka0gt0lgg",
 	SceneEnum.CHAPTER_SELECT: &"uid://bgo7e6a80racw",
+	SceneEnum.LEVEL_SELECT: &"uid://c86pbsftaqd3v",
 	SceneEnum.LOADING_SCREEN: &"uid://bpe5d70ww2nm8",
 }
 
@@ -35,8 +37,13 @@ func switch_scene(scene_enum: SceneEnum) -> void:
 	var loading_screen: LoadingScreen = loading_screen_scene.instantiate()
 	assert(loading_screen)
 	
-	get_tree().change_scene_to_node(loading_screen)
-	loading_screen.load_scene(scene_enum)
+	var err: Error = get_tree().change_scene_to_node(loading_screen)
+	if err != OK:
+		push_error("unable to load screen")
+		return
+	
+	await get_tree().scene_changed
+	loading_screen.load_scene.call_deferred(scene_enum)
 	
 	var target_node: Node = await loading_screen.loading_complete
 	assert(target_node)

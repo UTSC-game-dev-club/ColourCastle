@@ -22,7 +22,7 @@ wall_plane = NodePath("WallPlane")
 level_camera = NodePath("Camera")
 metadata/_custom_type_script = "uid://dsscop28xucyi"
 
-[node name="WorldEnvironment2" type="WorldEnvironment" parent="." unique_id=244302612]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=244302612]
 environment = SubResource("Environment_vfi3j")
 
 [node name="FloorPlane" type="CSGMesh3D" parent="." unique_id=150688203]

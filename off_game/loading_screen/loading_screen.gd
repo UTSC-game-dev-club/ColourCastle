@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 	
 	progress_bar.value = progress[0]
 	
-	assert(current_scene_enum)
+	assert(current_scene_enum in SceneManager.SceneEnum.values())
 	
 	var target_path: StringName = SceneManager.scene_enum_dictionary.get(current_scene_enum)
 	var status: ResourceLoader.ThreadLoadStatus 
@@ -28,6 +28,10 @@ func _process(_delta: float) -> void:
 	if status == ResourceLoader.THREAD_LOAD_LOADED:
 		var target_scene: PackedScene = ResourceLoader.load_threaded_get(target_path)
 		loading_complete.emit(target_scene.instantiate())
+		set_process(false)
+	elif status == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+		printerr("invalid resource for threaded load: %s" % target_path)
+		loading_complete.emit(null)
 		set_process(false)
 	elif status == ResourceLoader.THREAD_LOAD_FAILED:
 		printerr("unable to load scene")
@@ -37,6 +41,10 @@ func _process(_delta: float) -> void:
 func load_scene(scene_enum: SceneManager.SceneEnum) -> void:
 	current_scene_enum = scene_enum
 	var target_path: StringName = SceneManager.scene_enum_dictionary.get(scene_enum)
-	ResourceLoader.load_threaded_request(target_path)
+	var error: Error = ResourceLoader.load_threaded_request(target_path)
+	if error != OK:
+		printerr("unable to request threaded load for scene: %s" % target_path)
+		loading_complete.emit(null)
+		return
 	
 	set_process(true)

@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://c3udfxicg1nfl"]
+
+[ext_resource type="Script" uid="uid://dsscop28xucyi" path="res://game/levels/level.gd" id="1_i3a6l"]
+[ext_resource type="Script" uid="uid://b6wkykip0ycs8" path="res://game/level_surface_component.gd" id="2_qshi1"]
+[ext_resource type="Script" uid="uid://co8f1qle0aoj8" path="res://game/level_object_component.gd" id="3_71yqy"]
+[ext_resource type="Script" uid="uid://b5iqr82tx4yxl" path="res://game/level_camera.gd" id="3_jpexx"]
+[ext_resource type="PackedScene" uid="uid://cvfl046lxgtlo" path="res://player/player.tscn" id="4_3uc4v"]
+
+[sub_resource type="Environment" id="Environment_vfi3j"]
+ambient_light_source = 2
+ambient_light_color = Color(0.937243, 0.95971376, 0.99999994, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_826sl"]
+size = Vector3(50, 1, 50)
+
+[sub_resource type="BoxMesh" id="BoxMesh_67muo"]
+size = Vector3(5, 5, 5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_obg7k"]
+size = Vector3(50, 50, 1)
+
+[node name="BaseLevel" type="Node3D" unique_id=1099669743 node_paths=PackedStringArray("floor_plane", "wall_plane", "level_camera")]
+script = ExtResource("1_i3a6l")
+floor_plane = NodePath("FloorPlane")
+wall_plane = NodePath("WallPlane")
+level_camera = NodePath("Camera")
+metadata/_custom_type_script = "uid://dsscop28xucyi"
+
+[node name="WorldEnvironment2" type="WorldEnvironment" parent="." unique_id=244302612]
+environment = SubResource("Environment_vfi3j")
+
+[node name="FloorPlane" type="CSGMesh3D" parent="." unique_id=150688203]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.005, 25)
+use_collision = true
+collision_layer = 3
+collision_mask = 2
+mesh = SubResource("BoxMesh_826sl")
+script = ExtResource("2_qshi1")
+metadata/_custom_type_script = "uid://b6wkykip0ycs8"
+
+[node name="LevelObject3" type="CSGMesh3D" parent="." unique_id=334144685]
+transform = Transform3D(0.37893656, 0, 0, 0, 0.37893656, 0, 0, 0, 1, -18.197906, 6.183876, 31.144562)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_67muo")
+script = ExtResource("3_71yqy")
+color_enum = 1
+metadata/_custom_type_script = "uid://co8f1qle0aoj8"
+
+[node name="LevelObject4" type="CSGMesh3D" parent="." unique_id=298520960]
+transform = Transform3D(0.37893656, 0, 0, 0, 0.37893656, 0, 0, 0, 1, -22.452457, 12.65979, 31.144562)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_67muo")
+script = ExtResource("3_71yqy")
+color_enum = 1
+metadata/_custom_type_script = "uid://co8f1qle0aoj8"
+
+[node name="LevelObject2" type="CSGMesh3D" parent="." unique_id=1497182012]
+transform = Transform3D(1.3496201, 0, 0, 0, 0.61557823, 0, 0, 0, 1, 21.605038, 21.543724, 40.19857)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_67muo")
+script = ExtResource("3_71yqy")
+color_enum = 1
+metadata/_custom_type_script = "uid://co8f1qle0aoj8"
+
+[node name="LevelObject" type="CSGMesh3D" parent="." unique_id=2074330103]
+transform = Transform3D(1.6280062, 0, 0, 0, 0.28560507, 0, 0, 0, 1, -8.731722, 7.683271, 20.099285)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_67muo")
+script = ExtResource("3_71yqy")
+color_enum = 1
+metadata/_custom_type_script = "uid://co8f1qle0aoj8"
+
+[node name="LevelObject6" type="CSGMesh3D" parent="." unique_id=143866200]
+transform = Transform3D(0.017417496, -0.28558874, 0, 1.6279131, 0.0030555935, 0, 0, 0, 1, -12.044983, 12.464914, 20.099285)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_67muo")
+script = ExtResource("3_71yqy")
+color_enum = 1
+metadata/_custom_type_script = "uid://co8f1qle0aoj8"
+
+[node name="LevelObject5" type="CSGMesh3D" parent="." unique_id=921481068]
+transform = Transform3D(1.6280062, 0, 0, 0, 0.28560507, 0, 0, 0, 1, 5.161394, 16.493536, 20.099285)
+use_collision = true
+collision_layer = 2
+mesh = SubResource("BoxMesh_67muo")
+script = ExtResource("3_71yqy")
+metadata/_custom_type_script = "uid://co8f1qle0aoj8"
+
+[node name="WallPlane" type="CSGMesh3D" parent="." unique_id=1454718490]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 25, 0)
+use_collision = true
+collision_layer = 3
+collision_mask = 2
+mesh = SubResource("BoxMesh_obg7k")
+script = ExtResource("2_qshi1")
+metadata/_custom_type_script = "uid://b6wkykip0ycs8"
+
+[node name="Camera" type="Camera3D" parent="." unique_id=1709831331]
+transform = Transform3D(1, 0, 1.7484555e-07, 0, 1, 0, -1.7484555e-07, 0, 1, 0, 25, 50)
+projection = 1
+current = true
+fov = 59.2
+size = 50.0
+script = ExtResource("3_jpexx")
+metadata/_custom_type_script = "uid://b5iqr82tx4yxl"
+
+[node name="Player" parent="." unique_id=1932744295 instance=ExtResource("4_3uc4v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.035751, 2, 41.25433)

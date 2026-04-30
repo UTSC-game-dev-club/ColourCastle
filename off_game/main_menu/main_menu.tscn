@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://boihka0gt0lgg"]
 
 [ext_resource type="Script" uid="uid://cxartcoi056lr" path="res://off_game/main_menu/main_menu.gd" id="1_f4ip1"]
+[ext_resource type="Texture2D" uid="uid://g0ulp6qd3fsm" path="res://Assets/title-screen-background.jpg" id="2_pwfba"]
 
-[node name="MainMenu" type="Control" unique_id=1263924454]
+[node name="MainMenu" type="Control" unique_id=1563111737 node_paths=PackedStringArray("colour_rect")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,8 +11,22 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_f4ip1")
+colour_rect = NodePath("ColorRect")
+metadata/_custom_type_script = "uid://cxartcoi056lr"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=795612756]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_pwfba")
+expand_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2037222213]
+modulate = Color(1, 0, 1, 0)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,20 +34,27 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="." unique_id=1054726055]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -46.0
-offset_top = -15.5
-offset_right = 46.0
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "start game"
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1924739281]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_left = 773.0
+offset_top = 146.0
+offset_right = 973.0
+offset_bottom = 346.0
+theme_override_constants/separation = 32
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=1054726055]
+layout_mode = 2
+text = "Start Game"
+
+[node name="Options" type="Button" parent="VBoxContainer" unique_id=197155591]
+layout_mode = 2
+text = "Options"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=212475672]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

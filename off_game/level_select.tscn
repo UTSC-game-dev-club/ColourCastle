@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c86pbsftaqd3v"]
+
+[ext_resource type="PackedScene" uid="uid://c6436yhxqwr6s" path="res://wawee/Blender models/Main menu - Colour Castle.glb" id="2_dfxhb"]
+[ext_resource type="PackedScene" uid="uid://nid2426mbsqi" path="res://off_game/player/off_game_player.tscn" id="2_vxvyx"]
+
+[node name="LevelSelect" type="Node3D" unique_id=674779743]
+
+[node name="Main menu - Colour Castle" parent="." unique_id=763800076 instance=ExtResource("2_dfxhb")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=328718422]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11.665056, 36.61267)
+current = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=336934229]
+transform = Transform3D(0.20744954, -0.24889277, 0.94605356, 0.053310297, 0.9685311, 0.24311645, -0.97679216, 0, 0.21418987, -6.3473077, 8.59219, -6.258423)
+light_color = Color(0.45882353, 1, 1, 1)
+light_energy = 9.0
+
+[node name="OffGamePlayer" parent="." unique_id=404542259 instance=ExtResource("2_vxvyx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.107854, 2.343277, 16.168217)

@@ -10,8 +10,8 @@ const TARGET_LEVEL_PATH: String = "res://game/levels/levels/"
 
 #_____________________________________________________#
 # modify entries here:
-var target_level_name: String = "level1.tscn"
-var level_width: float = 100.0
+var target_level_name: String = "tutorials2.tscn"
+var level_width: float = 50
 #_____________________________________________________#
 
 func _run() -> void:
@@ -44,8 +44,8 @@ func _run() -> void:
 	
 	var floor_mesh: BoxMesh = floor_plane.mesh.duplicate()
 	var wall_mesh: BoxMesh = wall_plane.mesh.duplicate()
-	floor_mesh.size = Vector3(level_width, 1, level_width)
-	wall_mesh.size = Vector3(level_width, level_width, 1)
+	floor_mesh.size = Vector3(level_width, 0.01, level_width)
+	wall_mesh.size = Vector3(level_width, level_width, 0.01)
 	floor_plane.mesh = floor_mesh
 	wall_plane.mesh = wall_mesh
 	floor_plane.position = Vector3(0, 0, level_width / 2.0)

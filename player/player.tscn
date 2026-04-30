@@ -2,11 +2,12 @@
 
 [ext_resource type="Script" uid="uid://dhmcvuwila2rt" path="res://player/player.gd" id="1_p0vlq"]
 [ext_resource type="Script" uid="uid://dsw3iyq8cw1g2" path="res://player/knight.gd" id="3_3li8b"]
-[ext_resource type="PackedScene" uid="uid://ch2xn0xrjak8g" path="res://player/knight.glb" id="3_yw30f"]
+[ext_resource type="PackedScene" path="res://player/knight_black.tscn" id="3_yw30f"]
 [ext_resource type="Script" uid="uid://cgc455daxomh4" path="res://player/player_collision_checker.gd" id="4_yw30f"]
 
 [node name="Player" type="Node3D" unique_id=1932744295 node_paths=PackedStringArray("player_collision_checker", "visual_model")]
 script = ExtResource("1_p0vlq")
+jump_velocity = 18.0
 player_collision_checker = NodePath("PlayerMovementChecker")
 visual_model = NodePath("knight")
 metadata/_custom_type_script = "uid://dhmcvuwila2rt"
@@ -93,5 +94,5 @@ collision_mask = 2
 target_position = Vector3(0, -500, 0)
 collision_mask = 2
 
-[node name="knight" parent="." unique_id=1003588068 instance=ExtResource("3_yw30f")]
+[node name="knight" parent="." unique_id=2065875043 instance=ExtResource("3_yw30f")]
 script = ExtResource("3_3li8b")
