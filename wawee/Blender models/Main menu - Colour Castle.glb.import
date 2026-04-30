@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c6436yhxqwr6s"
-path="res://.godot/imported/Main menu - Colour Castle.glb-72ac98e37d8921da944756eb288c5360.scn"
+path="res://.godot/imported/Main menu - Colour Castle.glb-4e3af58e387357bc90e32c2d2923a5bb.scn"
 
 [deps]
 
-source_file="res://Blender models/Main menu - Colour Castle.glb"
-dest_files=["res://.godot/imported/Main menu - Colour Castle.glb-72ac98e37d8921da944756eb288c5360.scn"]
+source_file="res://wawee/Blender models/Main menu - Colour Castle.glb"
+dest_files=["res://.godot/imported/Main menu - Colour Castle.glb-4e3af58e387357bc90e32c2d2923a5bb.scn"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c86pbsftaqd3v"]
 
 [ext_resource type="PackedScene" uid="uid://cvfl046lxgtlo" path="res://player/player.tscn" id="1_nc0ax"]
-[ext_resource type="PackedScene" uid="uid://c6436yhxqwr6s" path="res://Blender models/Main menu - Colour Castle.glb" id="2_dfxhb"]
+[ext_resource type="PackedScene" uid="uid://c6436yhxqwr6s" path="res://wawee/Blender models/Main menu - Colour Castle.glb" id="2_dfxhb"]
 
 [node name="LevelSelect" type="Node3D" unique_id=956875422]
 
