@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" uid="uid://ch2xn0xrjak8g" path="res://player/knight.glb" id="1_knight"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_black"]
+albedo_color = Color(0, 0, 0, 1)
+
+[node name="knight" instance=ExtResource("1_knight")]
+
+[node name="head" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_black")
+
+[node name="eyecover" parent="." index="1"]
+material_override = SubResource("StandardMaterial3D_black")
+
+[node name="feater" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_black")
+
+[node name="helmer_001" parent="." index="3"]
+material_override = SubResource("StandardMaterial3D_black")
+
+[node name="torso" parent="." index="4"]
+material_override = SubResource("StandardMaterial3D_black")
+
+[node name="rarm" parent="." index="5"]
+material_override = SubResource("StandardMaterial3D_black")
+
+[node name="rhand" parent="." index="6"]
+material_override = SubResource("StandardMaterial3D_black")
+
+[node name="larm" parent="." index="7"]
+material_override = SubResource("StandardMaterial3D_black")
+
+[node name="lhand" parent="." index="8"]
+material_override = SubResource("StandardMaterial3D_black")
+
+[node name="bottom" parent="." index="9"]
+material_override = SubResource("StandardMaterial3D_black")
+
+[node name="cape" parent="." index="10"]
+material_override = SubResource("StandardMaterial3D_black")
+
+[node name="rfoot" parent="." index="11"]
+material_override = SubResource("StandardMaterial3D_black")
+
+[node name="rleg" parent="." index="12"]
+material_override = SubResource("StandardMaterial3D_black")
+
+[node name="lleg" parent="." index="13"]
+material_override = SubResource("StandardMaterial3D_black")
+
+[node name="lfoot" parent="." index="14"]
+material_override = SubResource("StandardMaterial3D_black")

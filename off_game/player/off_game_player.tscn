@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://nid2426mbsqi"]
+
+[ext_resource type="Script" uid="uid://dpb17vgjaw02p" path="res://off_game/player/off_game_player.gd" id="1_etqxl"]
+[ext_resource type="PackedScene" path="res://player/knight_black.tscn" id="2_61df1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xqgn3"]
+size = Vector3(1, 4, 2)
+
+[node name="OffGamePlayer" type="CharacterBody3D" unique_id=489073472]
+script = ExtResource("1_etqxl")
+speed = 10.0
+metadata/_custom_type_script = "uid://dpb17vgjaw02p"
+
+[node name="knight" parent="." unique_id=2137463776 instance=ExtResource("2_61df1")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1176466775]
+shape = SubResource("BoxShape3D_xqgn3")
